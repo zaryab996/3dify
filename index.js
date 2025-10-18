@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import fetch from "node-fetch"; // 👈 Added for proxy route
 import authRoutes from "./routes/auth.routes.js";
 import rodinRoutes from "./routes/rodin.routes.js";
+import connectDB from "./db/index.js";
 
 const app = express();
 
