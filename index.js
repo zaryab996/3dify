@@ -43,21 +43,21 @@ app.get("/api/v1/proxy-glb", async (req, res) => {
 });
 
 // ✅ Root route
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World!");
+// });
 
-app.listen(process.env.PORT, () => {
-  console.log(`⚙️ Server running on port: ${process.env.PORT} (DB disabled)`);
-});
+// app.listen(process.env.PORT, () => {
+//   console.log(`⚙️ Server running on port: ${process.env.PORT} (DB disabled)`);
+// });
 
-// connectDB()
-//   .then(async () => {
-//     await sequelize.sync({ alter: true });
-//     app.listen(process.env.PORT, () => {
-//       console.log(`⚙️ Server running on port: ${process.env.PORT}`);
-//     });
-//   })
-//   .catch((err) => {
-//     console.log("❌ DB connection failed:", err);
-//   });
+connectDB()
+  .then(async () => {
+    await sequelize.sync({ alter: true });
+    app.listen(process.env.PORT, () => {
+      console.log(`⚙️ Server running on port: ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("❌ DB connection failed:", err);
+  });
