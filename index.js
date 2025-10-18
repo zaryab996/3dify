@@ -6,7 +6,7 @@ import fetch from "node-fetch"; // 👈 Added for proxy route
 import authRoutes from "./routes/auth.routes.js";
 import rodinRoutes from "./routes/rodin.routes.js";
 import connectDB from "./db/index.js";
-
+import { Sequelize } from "sequelize";
 const app = express();
 
 dotenv.config();
